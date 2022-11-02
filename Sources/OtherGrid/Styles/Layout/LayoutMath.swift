@@ -12,12 +12,13 @@ func itemLength(tracks: Tracks, spacing: CGFloat, availableLength: CGFloat) -> C
     }
 }
 
-func tracksCount(tracks: Tracks, spacing: CGFloat, availableLength: CGFloat) -> Int {
+func tracksCount(tracks: Tracks, spacing: CGFloat, availableLength _availableLength: CGFloat) -> Int {
+    let availableLength: CGFloat = _availableLength >= CGFloat(Int.max) ? 0 : _availableLength
     switch tracks {
     case .count(let count):
         return count
     case .fixed(let length):
-         precondition(length > 0, "Minimum track length should be greated than 0")
+        precondition(length > 0, "Minimum track length should be greated than 0")
         let columnCount = Int(availableLength / length)
         
         for columns in (0...columnCount).reversed() {
