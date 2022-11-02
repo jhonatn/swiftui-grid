@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "Grid",
+    name: "OtherGrid",
     platforms: [
         .iOS(.v13), .macOS(.v10_15), .watchOS(.v6), .tvOS(.v13)
     ],
     products: [
-        .library(name: "Grid", targets: ["Grid"])
+        .library(name: "OtherGrid", targets: ["OtherGrid"])
     ],
     targets: [
-        .target(name: "Grid", dependencies: [], exclude: ["Demo"]),
-        .testTarget(name: "GridTests", dependencies: ["Grid"], exclude: ["Demo"])
+        .target(name: "OtherGrid", dependencies: [], exclude: ["Demo"]),
+        .testTarget(name: "OtherGridTests", dependencies: ["OtherGrid"], exclude: ["Demo"])
     ]
 )

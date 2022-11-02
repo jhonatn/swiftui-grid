@@ -1,5 +1,5 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct ModularGridView: View {
     @State var selection: Int = 0
@@ -13,7 +13,7 @@ struct ModularGridView: View {
                 Text("Settings")
             }
             ScrollView(style.axes) {
-                Grid(items) { item in
+                OtherGrid(items) { item in
                     Card(title: "\(item.number)", color: item.color)
                         .onTapGesture {
                             self.selection = item.number

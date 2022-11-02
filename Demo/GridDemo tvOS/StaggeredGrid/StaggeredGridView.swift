@@ -1,11 +1,11 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct StaggeredGridView: View {
     @State var selection: Int = 0
     
     var body: some View {
-        Grid(1...69, id: \.self) { index in
+        OtherGrid(1...69, id: \.self) { index in
             Image("\(index)")
                 .resizable()
                 .scaledToFit()

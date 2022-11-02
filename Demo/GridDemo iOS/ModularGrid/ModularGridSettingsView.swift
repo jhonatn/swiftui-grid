@@ -1,5 +1,5 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct ModularGridSettingsView: View {
     @Environment(\.presentationMode) var presentationMode

@@ -1,5 +1,5 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct SectionedGridView: View {
     var body: some View {
@@ -11,7 +11,7 @@ struct SectionedGridView: View {
                         Spacer()
                     }
                     
-                    Grid(self.rangeFor(section: section), id: \.self) { index in
+                    OtherGrid(self.rangeFor(section: section), id: \.self) { index in
                         Rectangle()
                             .foregroundColor(.clear)
                             .background(

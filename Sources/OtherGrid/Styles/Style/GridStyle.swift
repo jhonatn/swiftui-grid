@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// A specification for the appearance of a `Grid`.
+/// A specification for the appearance of a `OtherGrid`.
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 public protocol GridStyle {
     var axis: Axis { get }

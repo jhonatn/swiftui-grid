@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A view that arranges its children in a grid.
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct Grid<Content>: View where Content: View {
+public struct OtherGrid<Content>: View where Content: View {
     @Environment(\.gridStyle) private var style
     @State var preferences: GridPreferences = GridPreferences(size: .zero, items: [])
     let items: [GridItem]
@@ -39,9 +39,9 @@ public struct Grid<Content>: View where Content: View {
 
 #if DEBUG
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-struct Grid_Previews: PreviewProvider {
+struct OtherGrid_Previews: PreviewProvider {
     static var previews: some View {
-        Grid(0...100, id: \.self) {
+        OtherGrid(0...100, id: \.self) {
             Text("\($0)")
         }
     }

@@ -1,6 +1,6 @@
 [![Build Status](https://github.com/spacenation/swiftui-grid/workflows/ci/badge.svg)](https://github.com/spacenation/swiftui-grid/actions)
 
-## SwiftUI Grid
+## SwiftUI OtherGrid
 SwiftUI Grid view layout with custom styles.
 
 ## Features
@@ -22,7 +22,7 @@ Open `GridDemo.xcodeproj` for more examples for iOS, macOS, watchOS and tvOS
 
 ```swift
 ScrollView {
-    Grid(colors) {
+    OtherGrid(colors) {
         Rectangle()
             .foregroundColor($0)
     }
@@ -40,7 +40,7 @@ ScrollView {
 
 ```swift
 ScrollView {
-    Grid(1...69, id: \.self) { index in
+    OtherGrid(1...69, id: \.self) { index in
         Image("\(index)")
             .resizable()
             .scaledToFit()
@@ -92,7 +92,7 @@ struct CardsView: View {
     
     var body: some View {
         ScrollView {
-            Grid(0..<100) { number in
+            OtherGrid(0..<100) { number in
                 Card(title: "\(number)")
                     .onTapGesture {
                         self.selection = number

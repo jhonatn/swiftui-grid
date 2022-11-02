@@ -1,5 +1,5 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct StaggeredGridView: View {
     @State var showSettings: Bool = false
@@ -8,7 +8,7 @@ struct StaggeredGridView: View {
     
     var body: some View {
         ScrollView(style.axes) {
-            Grid(self.items, id: \.self) { index in
+            OtherGrid(self.items, id: \.self) { index in
                 NavigationLink(destination: ImageDetailView(imageName: "\(index)")) {
                     Image("\(index)")
                         .renderingMode(.original)

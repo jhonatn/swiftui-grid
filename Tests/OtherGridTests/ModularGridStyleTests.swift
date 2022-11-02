@@ -1,4 +1,4 @@
-@testable import Grid
+@testable import OtherGrid
 import XCTest
 
 class ModularGridStyleTests: XCTestCase {

@@ -1,10 +1,10 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct StaggeredGridView: View {
     var body: some View {
         ScrollView {
-            Grid(1...69, id: \.self) { index in
+            OtherGrid(1...69, id: \.self) { index in
                 Image("\(index)")
                     .resizable()
                     .scaledToFit()

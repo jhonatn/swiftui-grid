@@ -1,10 +1,10 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct StaticGridView: View {
     var body: some View {
         ScrollView {
-            Grid {
+            OtherGrid {
                 Capsule().foregroundColor(.random)
                 Capsule().foregroundColor(.random)
                 Capsule().foregroundColor(.random)

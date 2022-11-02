@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-extension Grid {
+extension OtherGrid {
     public init<Data, Item>(_ data: Data, @ViewBuilder item: @escaping (Data.Element) -> Item) where Content == ForEach<Data, Data.Element.ID, Item>, Data : RandomAccessCollection, Item : View, Data.Element : Identifiable {
         self.items = data.map { GridItem(view: AnyView(item($0)), id: AnyHashable($0.id)) }
     }
@@ -16,7 +16,7 @@ extension Grid {
 }
 
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-extension Grid {
+extension OtherGrid {
     public init<C0: View, C1: View>(@ViewBuilder content: () -> Content) where Content == TupleView<(C0, C1)> {
         self.items = [GridItem(view: AnyView(content().value.0), id: AnyHashable(0)),
                       GridItem(view: AnyView(content().value.1), id: AnyHashable(1))]

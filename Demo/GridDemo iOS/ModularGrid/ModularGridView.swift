@@ -1,5 +1,5 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct ModularGridView: View {
     @State var items: [Item] = (0...100).map { Item(number: $0) }
@@ -8,7 +8,7 @@ struct ModularGridView: View {
     
     var body: some View {
         ScrollView(style.axes) {
-            Grid(items) { item in
+            OtherGrid(items) { item in
                 Card(title: "\(item.number)", color: item.color)
             }
             .padding(8)

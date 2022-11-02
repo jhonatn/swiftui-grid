@@ -1,56 +1,53 @@
 import SwiftUI
 
-/// Staggered `Grid` style.
+/// Modular `OtherGrid` style.
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
-public struct StaggeredGridStyle: GridStyle {
-    public var tracks: Tracks
+public struct ModularGridStyle: GridStyle {
+    public var columns: Tracks
+    public var rows: Tracks
     public var axis: Axis
     public var spacing: CGFloat
-    
-    public var autoWidth: Bool {
-        axis == .vertical
-    }
-    public var autoHeight: Bool {
-        axis == .horizontal
-    }
-
-    public init(_ axis: Axis = .vertical, tracks: Tracks, spacing: CGFloat = 8) {
-        self.tracks = tracks
-        self.spacing = spacing
+    public var autoWidth: Bool = true
+    public var autoHeight: Bool = true
+        
+    public init(_ axis: Axis = .vertical, columns: Tracks, rows: Tracks, spacing: CGFloat = 8) {
+        self.columns = columns
+        self.rows = rows
         self.axis = axis
+        self.spacing = spacing
     }
-
+    
     public func transform(preferences: inout GridPreferences, in size: CGSize) {
         let computedTracksCount = self.axis == .vertical ?
             tracksCount(
-                tracks: self.tracks,
+                tracks: self.columns,
                 spacing: self.spacing,
                 availableLength: size.width
             ) :
             tracksCount(
-                tracks: self.tracks,
+                tracks: self.rows,
                 spacing: self.spacing,
                 availableLength: size.height
             )
-
-        let size = CGSize(
+        
+        let itemSize = CGSize(
             width: itemLength(
-                tracks: self.tracks,
+                tracks: self.columns,
                 spacing: self.spacing,
                 availableLength: size.width
             ),
             height: itemLength(
-                tracks: self.tracks,
+                tracks: self.rows,
                 spacing: self.spacing,
                 availableLength: size.height
             )
         )
-
+        
         preferences = layoutPreferences(
             tracks: computedTracksCount,
             spacing: self.spacing,
             axis: self.axis,
-            itemSize: size,
+            itemSize: itemSize,
             preferences: preferences
         )
     }
@@ -61,8 +58,8 @@ public struct StaggeredGridStyle: GridStyle {
         
         preferences.items.forEach { preference in
             if let minValue = tracksLengths.min(), let indexMin = tracksLengths.firstIndex(of: minValue) {
-                let itemSizeWidth = axis == .vertical ? itemSize.width : preference.bounds.size.width
-                let itemSizeHeight = axis == .vertical ? preference.bounds.size.height : itemSize.height
+                let itemSizeWidth = itemSize.width
+                let itemSizeHeight = itemSize.height
                 let width = axis == .vertical ? itemSizeWidth * CGFloat(indexMin) + CGFloat(indexMin) * spacing : tracksLengths[indexMin]
                 let height = axis == .vertical ? tracksLengths[indexMin] : itemSizeHeight * CGFloat(indexMin) + CGFloat(indexMin) * spacing
         

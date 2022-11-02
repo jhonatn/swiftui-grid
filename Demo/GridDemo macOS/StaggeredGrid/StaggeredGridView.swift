@@ -1,5 +1,5 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct StaggeredGridView: View {
     @State var showSettings: Bool = false
@@ -12,7 +12,7 @@ struct StaggeredGridView: View {
             }
         
             ScrollView(style.axes) {
-                Grid(1...69, id: \.self) { index in
+                OtherGrid(1...69, id: \.self) { index in
                     Image("\(index)")
                         .resizable()
                         .scaledToFit()

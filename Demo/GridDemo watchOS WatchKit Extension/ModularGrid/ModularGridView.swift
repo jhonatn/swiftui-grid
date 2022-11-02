@@ -1,5 +1,5 @@
 import SwiftUI
-import Grid
+import OtherGrid
 
 struct ModularGridView: View {
     @State var selection: Int = 0
@@ -7,7 +7,7 @@ struct ModularGridView: View {
     
     var body: some View {
         ScrollView {
-            Grid(items) { item in
+            OtherGrid(items) { item in
                 Rectangle()
                     .foregroundColor(item.color)
                     .cornerRadius(4)
